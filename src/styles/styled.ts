@@ -7,14 +7,14 @@ export const { styled, css } = createStitches({
 });
 
 export const GameContainer = styled("div", {
-  height: "100vh",
+  height: "100%",
   width: "100vw",
   display: "flex",
   flexWrap: "nowrap",
   flexDirection: "column",
   backgroundColor: "black",
-  justifyContent: "space-around",
-  alignItems: "center",
+  justifyContent: "flex-start",
+  alignItems: "stretch",
   "@bp1": {
     flexDirection: "column-reverse",
     justifyContent: "flex-end",
@@ -23,7 +23,7 @@ export const GameContainer = styled("div", {
 
 export const Genius = styled("div", {
   display: "grid",
-  padding: "5px 20px 5px 20px",
+  padding: "30px",
   gridTemplateAreas: `'green red' 
                        'yellow blue'`,
   gridGap: "1.5%",
@@ -31,19 +31,15 @@ export const Genius = styled("div", {
   border: "1px solid black",
   backgroundColor: "black",
   borderRadius: "100%",
-  width: "38rem",
-  height: "38rem",
-  "@bp1": {
-    padding: "20px 5px 20px 5px",
-    width: "18rem",
-    height: "18rem",
-  },
+  width: "100%",
+  height: "100%",
 });
 
 export const RowContainer1 = styled("div", {
   display: "flex",
   flexWrap: "nowrap",
   flexDirection: "row",
+  padding: "20px 0px 0px 0px",
   justifyContent: "center",
   alignItems: "stretch",
   width: "auto",
@@ -62,14 +58,12 @@ export const ColumnContainer1 = styled("div", {
   flexDirection: "column",
   justifyContent: "flex-start",
   alignItems: "center",
+  width: "50%",
+  height: "100%",
   "@bp1": {
-    display: "flex",
-    flexWrap: "nowrap",
-    padding: "5px",
-    flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
-    width: "auto",
+    padding: "5px",
+    width: "95%",
   },
 });
 
@@ -79,7 +73,7 @@ export const RowContainer2 = styled("div", {
   flexDirection: "row",
   justifyContent: "space-evenly",
   alignItems: "stretch",
-  height: "auto",
+  height: "100vh",
   "@bp1": {
     flexDirection: "column-reverse",
   },

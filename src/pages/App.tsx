@@ -6,11 +6,11 @@ import * as S from "../styles/styled";
 import Score from "../components/Score";
 import Status from "../components/Status";
 import HighScore from "../components/HighScore";
-import SoundButton1 from "../../public/SoundEffect1.mp3";
-import SoundButton2 from "../../public/SoundEffect2.mp3";
-import SoundButton3 from "../../public/SoundEffect3.mp3";
-import SoundButton4 from "../../public/SoundEffect4.mp3";
-import SoundButton5 from "../../public/SoundEffect5.mp3";
+import SoundButton1 from "/SoundEffect1.mp3";
+import SoundButton2 from "/SoundEffect2.mp3";
+import SoundButton3 from "/SoundEffect3.mp3";
+import SoundButton4 from "/SoundEffect4.mp3";
+import SoundButton5 from "/SoundEffect5.mp3";
 import { Howler, Howl } from "howler";
 import {
   WhatsappShareButton,
@@ -171,21 +171,21 @@ const App: React.FC = () => {
       <S.RowContainer4>
         <FacebookShareButton
           url="https://genius-react.vercel.app/"
-          quote={`Eu consegui atingi a pontuação ${localStorage.getItem(
+          quote={`Eu atingi a pontuação ${localStorage.getItem(
             "Highscore"
           )}, venha bater meu recorde`}
         >
           <FacebookIcon round={true}></FacebookIcon>
           <WhatsappShareButton
             url="https://genius-react.vercel.app/"
-            title={`Eu consegui atingi a pontuação ${localStorage.getItem(
+            title={`Eu atingi a pontuação ${localStorage.getItem(
               "Highscore"
             )}, venha bater meu recorde`}
           >
             <WhatsappIcon round={true}></WhatsappIcon>
             <TwitterShareButton
               url="https://genius-react.vercel.app/"
-              title={`Eu consegui atingi a pontuação ${localStorage.getItem(
+              title={`Eu atingi a pontuação ${localStorage.getItem(
                 "Highscore"
               )}, venha bater meu recorde`}
             >
