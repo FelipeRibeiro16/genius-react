@@ -6,9 +6,41 @@ import * as S from "../styles/styled";
 import Score from "../components/Score";
 import Status from "../components/Status";
 import HighScore from "../components/HighScore";
+import SoundButton1 from "../../public/SoundEffect1.mp3";
+import SoundButton2 from "../../public/SoundEffect2.mp3";
+import SoundButton3 from "../../public/SoundEffect3.mp3";
+import SoundButton4 from "../../public/SoundEffect4.mp3";
+import SoundButton5 from "../../public/SoundEffect5.mp3";
+import { Howler, Howl } from "howler";
+import {
+  WhatsappShareButton,
+  WhatsappIcon,
+  FacebookIcon,
+  FacebookShareButton,
+  TelegramShareButton,
+  TelegramIcon,
+  TwitterIcon,
+  TwitterShareButton,
+} from "react-share";
 
 const App: React.FC = () => {
   globalStyles();
+
+  var SoundEffect1 = new Howl({
+    src: [SoundButton1],
+  });
+  var SoundEffect2 = new Howl({
+    src: [SoundButton2],
+  });
+  var SoundEffect3 = new Howl({
+    src: [SoundButton3],
+  });
+  var SoundEffect4 = new Howl({
+    src: [SoundButton4],
+  });
+  var SoundEffect5 = new Howl({
+    src: [SoundButton5],
+  });
 
   const [selected, setSelected] = useState<string[]>([
     "off",
@@ -77,15 +109,6 @@ const App: React.FC = () => {
     }, number);
   };
 
-  const click = (color: number) => {
-    if (playerTime) {
-      createColorElement(color);
-      setClickedOrder((newClickedOrder) => [...newClickedOrder, color]);
-      setTimeout(() => {
-        setSelected(() => ["off", "off", "off", "off", "off"]);
-      }, 250);
-    }
-  };
   useEffect(() => {
     if (order.length != 0) {
       let stop = 0;
@@ -106,8 +129,21 @@ const App: React.FC = () => {
     }
   }, [clickedOrder]);
 
+  const click = (color: number) => {
+    if (playerTime) {
+      setClickedOrder((newClickedOrder) => [...newClickedOrder, color]);
+      createColorElement(color);
+
+      setTimeout(() => {
+        setSelected(() => ["off", "off", "off", "off", "off"]);
+      }, 250);
+    }
+  };
+
   const lose = () => {
     setAlert(() => "Você perdeu :( ");
+    Howler.stop();
+    SoundEffect5.play();
     setPlayerTime(() => false);
     setOrder(() => []);
     setTimeout(() => {
@@ -117,47 +153,84 @@ const App: React.FC = () => {
 
   const createColorElement = (element: number) => {
     if (element === 0) {
+      SoundEffect1.play();
       setSelected(() => ["on", "off", "off", "off", "off"]);
     } else if (element === 1) {
+      SoundEffect2.play();
       setSelected(() => ["off", "on", "off", "off", "off"]);
     } else if (element === 2) {
+      SoundEffect3.play();
       setSelected(() => ["off", "off", "on", "off", "off"]);
     } else if (element === 3) {
+      SoundEffect4.play();
       setSelected(() => ["off", "off", "off", "on", "off"]);
     }
   };
   return (
     <S.GameContainer>
+      <S.RowContainer4>
+        <FacebookShareButton
+          url="https://genius-react.vercel.app/"
+          quote={`Eu consegui atingi a pontuação ${localStorage.getItem(
+            "Highscore"
+          )}, venha bater meu recorde`}
+        >
+          <FacebookIcon round={true}></FacebookIcon>
+          <WhatsappShareButton
+            url="https://genius-react.vercel.app/"
+            title={`Eu consegui atingi a pontuação ${localStorage.getItem(
+              "Highscore"
+            )}, venha bater meu recorde`}
+          >
+            <WhatsappIcon round={true}></WhatsappIcon>
+            <TwitterShareButton
+              url="https://genius-react.vercel.app/"
+              title={`Eu consegui atingi a pontuação ${localStorage.getItem(
+                "Highscore"
+              )}, venha bater meu recorde`}
+            >
+              <TwitterIcon round={true}></TwitterIcon>
+            </TwitterShareButton>
+            <TelegramShareButton
+              url="https://genius-react.vercel.app/"
+              title={`Eu consegui atingi a pontuação ${localStorage.getItem(
+                "Highscore"
+              )}, venha bater meu recorde`}
+            >
+              {" "}
+              <TelegramIcon round={true}></TelegramIcon>
+            </TelegramShareButton>
+          </WhatsappShareButton>
+        </FacebookShareButton>
+      </S.RowContainer4>
       <S.RowContainer1>
         <Status status={alert}></Status>
       </S.RowContainer1>
       <S.RowContainer2>
-        <S.RowContainer4>
-          <S.ColumnContainer1>
-            <S.Genius>
-              <GeniusButton
-                color={"blue"}
-                opacity={selected[0]}
-                onClick={() => click(0)}
-              />
-              <GeniusButton
-                color={"yellow"}
-                opacity={selected[1]}
-                onClick={() => click(1)}
-              />
-              <GeniusButton
-                color={"red"}
-                opacity={selected[2]}
-                onClick={() => click(2)}
-              />
-              <GeniusButton
-                color={"green"}
-                opacity={selected[3]}
-                onClick={() => click(3)}
-              />
-            </S.Genius>
-          </S.ColumnContainer1>
-        </S.RowContainer4>
+        <S.ColumnContainer1>
+          <S.Genius>
+            <GeniusButton
+              color={"blue"}
+              opacity={selected[0]}
+              onClick={() => click(0)}
+            />
+            <GeniusButton
+              color={"yellow"}
+              opacity={selected[1]}
+              onClick={() => click(1)}
+            />
+            <GeniusButton
+              color={"red"}
+              opacity={selected[2]}
+              onClick={() => click(2)}
+            />
+            <GeniusButton
+              color={"green"}
+              opacity={selected[3]}
+              onClick={() => click(3)}
+            />
+          </S.Genius>
+        </S.ColumnContainer1>
         <S.ColumnContainer2>
           <S.RowContainer3>
             <Score score={score} />
