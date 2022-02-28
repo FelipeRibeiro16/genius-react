@@ -1,0 +1,32 @@
+import { styled } from "../../styles/styled";
+
+export const HighScore = styled("span", {
+  display: "flex",
+  padding: "6px",
+  margin: "30px",
+  alignItems: "center",
+  textAlign: "center",
+  justifyContent: "center",
+  flexDirection: "column",
+  userSelect: "none",
+  border: "DarkGreen 0.05em solid",
+  boxShadow: "inset 0 0 0.5em 0 DarkGreen, 0 0 2em 0.3em DarkGreen",
+  transition: "opacity 100ms linear",
+  position: "relative",
+  color: "MediumSeaGreen",
+  borderRadius: "0.5em",
+  fontSize: "1em",
+  textShadow: "0 0 0.125em hsl(0 0% 100% / 0.1), 0 0 0.8em MediumSeaGreen",
+  "&::before": {
+    content: "",
+    position: "absolute",
+    borderRadius: "0.5em",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    boxShadow: "inset 0 0 2em 0.5em DarkGreen",
+    transition: "opacity 100ms linear",
+    filter: "blur(1em)",
+  },
+});

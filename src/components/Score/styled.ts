@@ -1,0 +1,36 @@
+import { styled } from "../../styles/styled";
+
+export const Score = styled("span", {
+  display: "flex",
+  padding: "8px",
+  margin: "30px",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "column",
+  userSelect: "none",
+  gridArea: "yellow",
+  textAlign: "center",
+  borderLeft: "DarkGoldenRod 0.05em solid",
+  boxShadow: "inset 0 0 0.5em 0 DarkGoldenRod, 0 0 2em 0.3em DarkGoldenRod",
+  transition: "opacity 100ms linear",
+  position: "relative",
+  color: "yellow",
+  borderRadius: "0.5em",
+  fontSize: "1em",
+  textShadow: "0 0 0.125em hsl(0 0% 100% / 0.1), 0 0 0.8em yellow",
+  "&::before": {
+    content: "",
+    position: "absolute",
+    borderRadius: "0.5em",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    boxShadow: "inset 0 0 2em 0.5em DarkGoldenRod",
+    transition: "opacity 100ms linear",
+    filter: "blur(1em)",
+  },
+  "&bp1": {
+    margin: "10px",
+  },
+});

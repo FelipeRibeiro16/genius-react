@@ -1,0 +1,32 @@
+import { styled } from "@stitches/react";
+
+export const Status = styled("span", {
+  display: "flex",
+  padding: "8px",
+  alignItems: "center",
+  margin: "5px",
+  justifyContent: "center",
+  flexDirection: "column",
+  userSelect: "none",
+  textAlign: "center",
+  border: "DarkRed 0.05em solid",
+  boxShadow: "inset 0 0 0.5em 0 DarkRed, 0 0 2em 0.3em DarkRed",
+  transition: "opacity 100ms linear",
+  position: "relative",
+  color: "red",
+  borderRadius: "0.5em",
+  fontSize: "1em",
+  textShadow: "0 0 0.125em hsl(0 0% 100% / 0.1), 0 0 0.8em red",
+  "&::before": {
+    content: "",
+    position: "absolute",
+    borderRadius: "0.5em",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    boxShadow: "inset 0 0 2em 0.5em DarkRed",
+    transition: "opacity 100ms linear",
+    filter: "blur(1em)",
+  },
+});
