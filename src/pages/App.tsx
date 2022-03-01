@@ -24,8 +24,6 @@ import {
 } from "react-share";
 
 const App: React.FC = () => {
-  globalStyles();
-
   var SoundEffect1 = new Howl({
     src: [SoundButton1],
   });

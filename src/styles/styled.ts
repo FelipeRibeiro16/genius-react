@@ -7,7 +7,7 @@ export const { styled, css } = createStitches({
 });
 
 export const GameContainer = styled("div", {
-  height: "100%",
+  height: "100vh",
   width: "100vw",
   display: "flex",
   flexWrap: "nowrap",
@@ -18,6 +18,7 @@ export const GameContainer = styled("div", {
   "@bp1": {
     flexDirection: "column-reverse",
     justifyContent: "flex-end",
+    alignItems: "center",
   },
 });
 
@@ -33,13 +34,16 @@ export const Genius = styled("div", {
   borderRadius: "100%",
   width: "100%",
   height: "100%",
+  "@bp1": {
+    padding: 0,
+  },
 });
 
 export const RowContainer1 = styled("div", {
   display: "flex",
   flexWrap: "nowrap",
   flexDirection: "row",
-  padding: "20px 0px 0px 0px",
+  padding: "20px 0px 30px 0px",
   justifyContent: "center",
   alignItems: "stretch",
   width: "auto",
@@ -61,9 +65,10 @@ export const ColumnContainer1 = styled("div", {
   width: "50%",
   height: "100%",
   "@bp1": {
+    padding: "20px 0px 20px 0px",
     justifyContent: "center",
-    padding: "5px",
-    width: "95%",
+    height: "100%",
+    width: "100%",
   },
 });
 
@@ -73,9 +78,10 @@ export const RowContainer2 = styled("div", {
   flexDirection: "row",
   justifyContent: "space-evenly",
   alignItems: "stretch",
-  height: "100vh",
+  height: "100%",
   "@bp1": {
     flexDirection: "column-reverse",
+    justifyContent: "flex-end",
   },
 });
 
@@ -84,7 +90,7 @@ export const ColumnContainer2 = styled("div", {
   flexWrap: "nowrap",
   flexDirection: "column",
   justifyContent: "flex-start",
-  alignItems: "space-between",
+  alignItems: "stretch",
 });
 
 export const RowContainer3 = styled("div", {
@@ -108,6 +114,6 @@ export const RowContainer4 = styled("div", {
   alignItems: "center",
   width: "auto",
   "@bp1": {
-    padding: "40px 0px 0px 0px",
+    padding: "0px 0px 0px 0px",
   },
 });
